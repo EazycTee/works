@@ -1,0 +1,130 @@
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+    position: relative;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.dpnone {
+    display: none;
+}
+html {
+    font-size: 16px;
+    overflow-y: scroll;
+}
+body {
+    margin: 0;
+    min-height: 100%;
+    width: 100%;
+    min-width: 320px;
+}
+#main {
+    width: 100%;
+    position: relative;
+}
+.pageHeader {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+#search {
+    display: block;
+    /*box-sizing: content-box;*/
+    width: 100%;
+    height: 2.5rem;
+    padding: .5rem 1rem;
+    margin: auto;
+    line-height: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 1.5rem;
+    box-shadow: 0 0px 2px 0 rgba(0,0,0,.1);
+    background-color: #fff;
+}
+#search:focus {
+    outline: none;
+}
+.tnlist {
+    /*background: #ccc;*/
+    padding: .5rem;
+    margin: 3.2rem 0 3rem 0;
+}
+.tnlist li {
+    float: left;
+    list-style-type: none;
+    width: 110px;
+    height: 110px;
+    position: relative;
+    padding: .8rem;
+    margin: .5rem;
+    /*background: #fff;*/
+    overflow: hidden;
+}
+.tnlist li.selected {
+    background-color: #eee;
+    border-radius: .5rem;
+}
+.tnlist li div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.3);
+    background-color: #fff;
+}
+.tnlist li div img {
+    box-sizing: border-box;
+    display: block;
+    border: 1px solid #aaa;
+    /*cursor: pointer;*/
+}
+.tnlist .btn, .tnlist .info {
+    background-color: #ddd;
+    cursor: pointer;
+    padding: .3rem;
+    margin: 1rem;
+    border-radius: 100%;
+}
+.tnlist .info {
+    border-radius: 0;
+    cursor: default;
+    padding: 0rem;
+    margin: 1.3rem;
+}
+.tnlist .btn div, .tnlist .info div {
+    box-shadow: none;
+    text-align: center;
+    user-select: none;
+    background-color: transparent;
+}
+.tnlist .btn:hover {
+    background-color: #eee;
+}
+.tnlist .btn:active {
+    background-color: #ccc;
+}
+.pageFooter {
+    background-color: #222;
+    position: fixed;
+    padding: .8rem;
+    bottom: 0;
+    width: 100%;
+}
+.pageFooter p {
+    /*height: 1rem;*/
+    font-size: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    color: #ddd;
+    margin: 0;
+}
