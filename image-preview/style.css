@@ -16,6 +16,7 @@
 html {
     font-size: 16px;
     overflow-y: scroll;
+    min-height: 100%;
 }
 body {
     margin: 0;
@@ -25,11 +26,10 @@ body {
 }
 #main {
     width: 100%;
+    min-height: 100%;
     position: relative;
 }
 .pageHeader {
-    position: fixed;
-    z-index: 1;
     top: 0;
     width: 100%;
     text-align: center;
@@ -38,7 +38,6 @@ body {
 }
 #search {
     display: block;
-    /*box-sizing: content-box;*/
     width: 100%;
     height: 2.5rem;
     padding: .5rem 1rem;
@@ -54,9 +53,8 @@ body {
     outline: none;
 }
 .tnlist {
-    /*background: #ccc;*/
-    padding: .5rem;
-    margin: 3.2rem 0 3rem 0;
+    padding: 0;
+    margin: 0 .5rem 3.5rem .5rem;
 }
 .tnlist li {
     float: left;
@@ -66,7 +64,6 @@ body {
     position: relative;
     padding: .8rem;
     margin: .5rem;
-    /*background: #fff;*/
     overflow: hidden;
 }
 .tnlist li.selected {
@@ -86,20 +83,46 @@ body {
     box-sizing: border-box;
     display: block;
     border: 1px solid #aaa;
-    /*cursor: pointer;*/
-}
-.tnlist .btn, .tnlist .info {
-    background-color: #ddd;
-    cursor: pointer;
-    padding: .3rem;
-    margin: 1rem;
-    border-radius: 100%;
 }
 .tnlist .info {
+    background-color: #ddd;
+    color: #666;
     border-radius: 0;
-    cursor: default;
     padding: 0rem;
     margin: 1.3rem;
+    /*box-shadow: -1rem 0 0 -0.5rem #eee;*/
+    box-shadow: -20px 0 0 -10px #eee;
+    position: relative;
+    overflow: visible;
+}
+.tnlist .info div {
+    padding: 0;
+    width: 100%;
+}
+.tnlist .info._2, .tnlist .info._1, .tnlist .info._0 {
+    box-shadow: none;
+}
+.tnlist .info:before {
+    content: '';
+    position: absolute;
+    display: block;
+    background-color: #e5e5e5;
+    width: 5px;
+    height: 100px;
+    left: -5px;
+    top: 5px;
+}
+.tnlist .info._1:before, .tnlist .info._0:before {
+    background-color: transparent;
+}
+.tnlist .btn {
+    padding: 0rem;
+    margin: 1.3rem;
+    border-radius: 100%;
+    cursor: pointer;
+    background-color: #444;
+    color: #ccc;
+    box-shadow: 0 0px 5px 0 rgba(0,0,0,.8);
 }
 .tnlist .btn div, .tnlist .info div {
     box-shadow: none;
@@ -108,10 +131,10 @@ body {
     background-color: transparent;
 }
 .tnlist .btn:hover {
-    background-color: #eee;
+    background-color: #555;
 }
 .tnlist .btn:active {
-    background-color: #ccc;
+    background-color: #333;
 }
 .pageFooter {
     background-color: #222;
@@ -121,7 +144,6 @@ body {
     width: 100%;
 }
 .pageFooter p {
-    /*height: 1rem;*/
     font-size: 1rem;
     line-height: 1rem;
     text-align: center;

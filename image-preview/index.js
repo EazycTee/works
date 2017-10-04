@@ -13,46 +13,54 @@ var util = {
 }
 
 var vm = (function() {
-    var listResultUrl = listOrigUrl = listOrig = [];
+    // 初始化时显示的图片数量
+    var listFirstStepLength = 10; 
+
+    // 数据源（list_result_data 通过 index.html 中的 script 载入）
+    var listOrig = list_result_data.reverse();
 
     var listDefaultStepLength = 5;
-    var listFirstStepLength = 10;
-    var msgDefault = "选择一张图片";
+    var statusMsgDefault = "点选一张图片随即自动拷贝链接，按“空格”或“回车”可预览选中的图片（数据源仅22张图片，作为功能展示，其余6000多张图片均是源文件里的拷贝）";
+    var listResultUrl = listOrigUrl = [];
 
     return new Vue({
         el: "#main",
         data: {
-            searchKeyword: "",
-            msg: msgDefault,
+            searchPhMsg: '搜索...',
+
+            // 图床相关配置
+            protocol: "http:",
+            host: "oww4nskgw.bkt.clouddn.com",
+            sep: '!', // 分隔符
+            ss: { // styleString 图片样式
+                tn: "tn", // thumbnail
+                pv: "pv", // preview
+                aw: "aw" // article with
+            },
+
+            // 辅助变量
+            searchKeyword: '',
+            statusMsg: statusMsgDefault,
             currentIndex: -1,
             list: [],
             listLength: 0,
-            listLeft: 0,
-            protocol: "http:",
-            host: "oww4nskgw.bkt.clouddn.com",
-            ss: { // style string
-                tn: "tn",
-                pv: "pv",
-                aw: "aw"
-            }
+            listLeft: 0
         },
         computed: {},
         mounted: function() {
             var me = this;
 
-            // list_result_data 通过 index.html 中的 script 载入
-            listOrig = list_result_data.reverse();
             me.fn_filter();
             me.fn_next(listFirstStepLength, true);
 
-            // 绑定事件：点击 .tn 时，复制 dataset-clip 到剪贴板
+            // 绑定事件：点击 .tn 时，复制 data-clipboard-text 属性到剪贴板
             var clipboard = new Clipboard('.tn');
 
             // 按下回车时，如果选中了图片，则打开新窗口预览图片
             elmSearch = document.getElementById('search');
             document.body.onkeyup = function(e) {
                 if ((e.code === 'Enter' || (e.code === 'Space' && e.target !== elmSearch)) && typeof listResultUrl[me.currentIndex] === 'string') {
-                    window.open(listResultUrl[me.currentIndex] + '!' + me.ss.pv);
+                    window.open(listResultUrl[me.currentIndex] + me.sep + me.ss.pv);
                 }
             }
         },
@@ -62,20 +70,20 @@ var vm = (function() {
                 me.fn_filter(me.searchKeyword);
                 me.fn_next(listFirstStepLength, true);
                 me.currentIndex = -1;
-                me.msg = msgDefault;
+                me.statusMsg = statusMsgDefault;
             }),
             onSelect: function(e) {
                 var me = this;
                 var elm = e.target;
                 me.currentIndex = Number(elm.dataset.index);
-                me.msg = listOrig[me.currentIndex];
+                me.statusMsg = listOrig[me.currentIndex];
             },
             fn_filter: function(keyword) {
                 var me = this;
                 listResultUrl = [];
                 if (keyword && keyword !== '') {
                     listOrig.forEach(function(val, i) {
-                        if (val.indexOf(keyword) > -1) {
+                        if (val.toLocaleLowerCase().indexOf(keyword.toLocaleLowerCase()) > -1) {
                             listResultUrl.push(me.fn_origToUrl(val));
                         }
                     });
@@ -91,7 +99,8 @@ var vm = (function() {
             },
             fn_origToUrl: function(orig) {
                 var me = this;
-                return `${me.protocol}//${me.host}/${orig}`;
+                // return `${me.protocol}//${me.host}/${orig}`;
+                return me.protocol + '//' + me.host + '/' + orig;
             },
             fn_next: (function() {
                 var i;

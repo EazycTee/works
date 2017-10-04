@@ -5,36 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="IE=Edge">
-    <title>Image Preview</title>
-    <link rel="stylesheet" href="./style.css?v=1.2">
+    <title>ezImageViewer</title>
+    <link rel="stylesheet" href="./style.css?v=1.1">
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/clipboard.js/1.7.1/clipboard.min.js"></script>
+    <script src="./data/list-result.js"></script>
 </head>
 
 <body>
     <div id="main">
         <header class="pageHeader">
-            <input id="search" type="search" v-model="searchKeyword" placeholder="search..." @input="onSearch" autocomplete="off">
+            <input id="search" type="search" v-model="searchKeyword" :placeholder="searchPhMsg" @input="onSearch" autocomplete="off">
         </header>
         <ul class="tnlist clearfix">
             <li v-for="(url, i) in list" :class="{ selected: currentIndex === i }">
                 <div class="imgBox">
-                    <img class="tn" :src="url + '!tn'" alt="filename" :data-clipboard-text="url" @click="onSelect" :data-index="i">
+                    <img class="tn" :src="url + sep + ss.tn" alt="filename" :data-clipboard-text="url + sep + ss.aw" @click="onSelect" :data-index="i">
                 </div>
             </li>
-            <li class="info"><div>{{ listLeft }} left</div></li>
-            <li class="btn" :class="{dpnone: listLeft === 0}" @click="fn_next(5)"><div>next 5</div></li>
-            <li class="btn" :class="{dpnone: listLeft < 5}" @click="fn_next(20)"><div>next 10</div></li>
-            <li class="btn" :class="{dpnone: listLeft < 20}" @click="fn_next(50)"><div>next 50</div></li>
+            <li class="info" :class="'_' + listLeft"><div>{{ listLeft > 3 ? listLeft + '...' : listLeft }}</div></li>
+            <li class="btn" :class="{dpnone: listLeft === 0}" @click="fn_next(5)"><div>{{ listLeft > 5 ? 'next ' + 5 : 'next all'}}</div></li>
+            <li class="btn" :class="{dpnone: listLeft < 5}" @click="fn_next(20)"><div>{{ listLeft > 20 ? 'next ' + 20 : 'next all'}}</div></li>
+            <li class="btn" :class="{dpnone: listLeft < 20}" @click="fn_next(50)"><div>{{ listLeft > 50 ? 'next ' + 50 : 'next all'}}</div></li>
         </ul>
         <footer class="pageFooter">
-            <p>{{ msg }}</p>
+            <p>{{ statusMsg }}</p>
         </footer>
     </div>
-    <!-- <script src="./lib/js/jQuery-3.2.1.js"></script> -->
-    <!-- <script src="./lib/js/vue.js"></script> -->
-    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
-    <!-- <script src="./lib/js/clipboard.js"></script> -->
-    <script src="https://cdn.bootcss.com/clipboard.js/1.7.1/clipboard.min.js"></script>
-    <script src="./data/list-result.js"></script>
     <script src="./index.js"></script>
 </body>
 
