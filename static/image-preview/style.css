@@ -1,0 +1,152 @@
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+    position: relative;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.dpnone {
+    display: none;
+}
+html {
+    font-size: 16px;
+    overflow-y: scroll;
+    min-height: 100%;
+}
+body {
+    margin: 0;
+    min-height: 100%;
+    width: 100%;
+    min-width: 320px;
+}
+#main {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+}
+.pageHeader {
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+#search {
+    display: block;
+    width: 100%;
+    height: 2.5rem;
+    padding: .5rem 1rem;
+    margin: auto;
+    line-height: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 1.5rem;
+    box-shadow: 0 0px 2px 0 rgba(0,0,0,.1);
+    background-color: #fff;
+}
+#search:focus {
+    outline: none;
+}
+.tnlist {
+    padding: 0;
+    margin: 0 .5rem 3.5rem .5rem;
+}
+.tnlist li {
+    float: left;
+    list-style-type: none;
+    width: 110px;
+    height: 110px;
+    position: relative;
+    padding: .8rem;
+    margin: .5rem;
+    overflow: hidden;
+}
+.tnlist li.selected {
+    background-color: #eee;
+    border-radius: .5rem;
+}
+.tnlist li div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.3);
+    background-color: #fff;
+}
+.tnlist li div img {
+    box-sizing: border-box;
+    display: block;
+    border: 1px solid #aaa;
+}
+.tnlist .info {
+    background-color: #ddd;
+    color: #666;
+    border-radius: 0;
+    padding: 0rem;
+    margin: 1.3rem;
+    /*box-shadow: -1rem 0 0 -0.5rem #eee;*/
+    box-shadow: -20px 0 0 -10px #eee;
+    position: relative;
+    overflow: visible;
+}
+.tnlist .info div {
+    padding: 0;
+    width: 100%;
+}
+.tnlist .info._2, .tnlist .info._1, .tnlist .info._0 {
+    box-shadow: none;
+}
+.tnlist .info:before {
+    content: '';
+    position: absolute;
+    display: block;
+    background-color: #e5e5e5;
+    width: 5px;
+    height: 100px;
+    left: -5px;
+    top: 5px;
+}
+.tnlist .info._1:before, .tnlist .info._0:before {
+    background-color: transparent;
+}
+.tnlist .btn {
+    padding: 0rem;
+    margin: 1.3rem;
+    border-radius: 100%;
+    cursor: pointer;
+    background-color: #444;
+    color: #ccc;
+    box-shadow: 0 0px 5px 0 rgba(0,0,0,.8);
+}
+.tnlist .btn div, .tnlist .info div {
+    box-shadow: none;
+    text-align: center;
+    user-select: none;
+    background-color: transparent;
+}
+.tnlist .btn:hover {
+    background-color: #555;
+}
+.tnlist .btn:active {
+    background-color: #333;
+}
+.pageFooter {
+    background-color: #222;
+    position: fixed;
+    padding: .8rem;
+    bottom: 0;
+    width: 100%;
+}
+.pageFooter p {
+    font-size: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    color: #ddd;
+    margin: 0;
+}

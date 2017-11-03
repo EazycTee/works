@@ -1,0 +1,90 @@
+
+.fl {float:left;}
+.fr {float:right;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{*+height:1%;}
+.dpnone{display: none;}
+
+
+html {
+    width: 100%;
+    min-height: 100%;
+    font-size: 16px;
+    background-color: #222;
+}
+
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    color: #ccc;
+    font-size: normal;
+    font-family: consolas, sans-serif;
+}
+
+.main {
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    margin: auto;
+}
+
+.window {
+	width: 90%;
+    height: 450px;
+    margin: 2rem auto;
+    background-color: #444;
+    position: relative;
+    overflow: hidden;
+    border: 8px solid #111;
+    /*box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);*/
+}
+
+.frame {
+    z-index: 1;
+    position: absolute;
+    max-width: 354px;
+    /*width: 354px;*/
+    /*height: 100px;*/
+    width: 22rem;
+    height: 6rem;
+    top: 2rem;
+    left: 2rem;
+    overflow: hidden;
+}
+
+#xmas {
+    width: 100%;
+    position: absolute;
+    top: -6rem;
+    left: 0;
+}
+
+.panel {
+    width: 100%;
+    left: 0;
+    margin: auto;
+}
+
+.panelItem {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.button {
+    background-color: #bbb;
+    border-radius: 6rem;
+    box-sizing: border-box;
+    box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.4);
+    color: #444;
+    cursor: pointer;
+    display: block;
+    height: 4rem;
+    line-height: 4rem;
+    margin: auto;
+    text-align: center;
+    user-select: none;
+    width: 10rem;
+    top: 0;
+}
