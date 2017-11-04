@@ -17,11 +17,11 @@ var catalog = [
     },
     {
         name: "xmas-animation",
-        title: "圣诞老人动画",
+        title: "圣诞老人和他的麋鹿s",
         imgUrl: "./images/css-xmas-animation.jpg",
         pageUrl: "http://works.eazyc.info/static/xmas-animation/",
         codeUrl: "https://github.com/EazycTee/works/tree/master/static/xmas-animation",
-        desc: "看，有四只萌萌的麋鹿牵着圣诞老人从窗口飞过噢（绘图：dreamvin）~~"
+        desc: "看，有四只萌萌的麋鹿牵着圣诞老人从窗口飞过噢~~"
     },
     {
         name: "hexo-blog",
