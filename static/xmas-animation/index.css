@@ -35,14 +35,14 @@ body {
 
 .main {
     width: 100%;
-    max-width: 1000px;
+    max-width: 800px;
     margin: auto;
 }
 
 .window {
 	width: 90%;
     height: 450px;
-    margin: 2rem auto;
+    margin: 20px auto;
     background-color: #444;
     position: relative;
     overflow: hidden;
@@ -90,12 +90,12 @@ body {
     color: #444;
     cursor: pointer;
     display: block;
-    height: 4rem;
-    line-height: 4rem;
+    height: 50px;
+    line-height: 50px;
     margin: auto;
     text-align: center;
     user-select: none;
-    width: 10rem;
+    width: 120px;
     top: 0;
     opacity: .9;
 }

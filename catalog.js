@@ -13,7 +13,7 @@ var catalog = [
         imgUrl: "./images/image-preview.jpg",
         pageUrl: "http://works.eazyc.info/static/image-preview/",
         codeUrl: "https://github.com/EazycTee/works/tree/master/static/image-preview",
-        desc: "当时使用七牛云作为博客图床，而七牛云并没有好用的图片预览页面（实际使用需要搭配云存储提供的上传和查询工具，比如七牛云的 qshell），于是制作这个工具。建议使用 Google Chrome 打开：）"
+        desc: "当时使用七牛云作为博客图床，而七牛云并没有好用的图片预览页面，于是制作这个工具（实际使用需要搭配云存储提供的上传和查询工具，比如七牛云的 qshell）。建议使用 Google Chrome 打开：）"
     },
     {
         name: "xmas-animation",
